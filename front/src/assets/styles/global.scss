@@ -1,0 +1,213 @@
+$dark: #171717;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+*,
+button,
+input,
+textarea{
+  outline: none;
+  border: 0;
+}
+html,
+body,
+#app {
+  height: 100%;
+}
+// :root {
+//   --primary: #36393F;
+//   --secondary: #2F3136;
+//   --tertiary: rgb(32, 34, 37);
+//   --quaternary: #292B2F;
+//   --quinary: #393D42;
+//   --senary: #828386;
+//   --white: #fff;
+//   --grey: #8A8C90;
+//   --chat-input: rgb(64, 68, 75);
+//   --symbol: #74777A;
+//   --notification: #F84A4B;
+//   --discord: #6E86D6;
+//   --mention-detail: #F9A839;
+//   --mention-message: #413F3F;
+//   --link: #5D80D6;
+// }
+.message img{
+  max-width: 50% !important;
+  height: auto;
+}
+.ql-editor img{
+  max-width: 20% !important;
+  height: auto;
+}
+.v-overlay__scrim{
+  background: black !important;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #36393F;
+    --secondary: #2F3136;
+    --tertiary: rgb(32, 34, 37);
+    --quaternary: #292B2F;
+    --quinary: #393D42;
+    --senary: #828386;
+    --font: #FFFFFF;
+    --chat-input: rgb(64, 68, 75);
+    --symbol: #74777A;
+    --notification: #F84A4B;
+    --discord: #6E86D6;
+    --mention-detail: #F9A839;
+    --mention-message: #413F3F;
+    --link: #5D80D6;
+    --text-area: #3E4147;
+    --white:#fff;
+    --mode-toggle-bg: #262626;
+    --tool-bar-border: gray;
+  }
+}
+[data-theme="light"] {
+  --primary: #FDBC80;
+  --secondary: #FD8B21;
+  --tertiary: #f57b08fc;
+  --quaternary: #42D94E;
+  --quinary: #2331FC;
+  --senary: #1D2C60;
+  --font: #511D5F;
+  --chat-input: rgb(238, 141, 255);
+  --symbol: #0BE3FF;
+  --notification: #F84A4B;
+  --discord: #FF2868;
+  --mention-detail: #D3FF4F;
+  --mention-message: #f4ead6ad;
+  --link: #340046;
+  --text-area: #FDBF85;
+  --white:#fff;
+  --mode-toggle-bg: #935E28;
+  --tool-bar-border: #511D5F;
+  transition: background-color .5s ease, transform .5s ease;
+}
+[data-theme="dark"] {
+  --primary: #36393F;
+  --secondary: #2F3136;
+  --tertiary: rgb(32, 34, 37);
+  --quaternary: #292B2F;
+  --quinary: #393D42;
+  --senary: #828386;
+  --white: #fff;
+  --grey: #8A8C90;
+  --chat-input: rgb(64, 68, 75);
+  --symbol: #74777A;
+  --notification: #F84A4B;
+  --discord: #6E86D6;
+  --mention-detail: #F9A839;
+  --mention-message: #413F3F;
+  --link: #5D80D6;
+  --text-area: #3E4147;
+  --mode-toggle-bg: #262626;
+  --tool-bar-border: gray;
+  transition: background-color .5s ease, transform .5s ease;
+  .mode-toggle {
+    background-color: lighten(#262626, 10%);
+    .toggle {
+        transform: translateX(19px);
+        #dark-mode {
+            &:before {
+                border-radius: 50%;
+                width: 150%;
+                height: 85%;
+                left: 40%;
+                transform: translate(-10%, -40%), rotate(-35deg);
+            }
+        }
+    }
+}
+}
+// _mode-toggle.scss
+.mode-toggle {
+position: relative;
+//margin: auto .5rem .5rem auto;
+padding: 0;
+width: 44px;
+height: 24px;
+min-width: 36px;
+min-height: 20px;
+background-color: #FF2868;;
+border: 0;
+border-radius: 24px;
+outline: 0;
+overflow: hidden;
+cursor: pointer;
+z-index: 2;
+-webkit-tap-highlight-color: rgba(208, 54, 255, 0);
+-webkit-touch-callout: none;
+appearance: none;
+transition: background-color .5s ease, transform .5s ease;
+.toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    box-shadow: inset 0 0 0 2px #B2A5BA;
+    overflow: hidden;
+    transition: transform .5s ease;
+    #dark-mode {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 50%;
+        &:before {
+            content: '';
+            position: relative;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            float: left;
+            background-color: #B5A5BA;
+            transition: border-radius .5s ease, width .5s ease, height .5s ease, left .5s ease, transform .5s ease;
+        }
+    }
+}
+}
+:root.dark {
+  .mode-toggle {
+    background-color: lighten(#262626, 10%);
+    transition: background-color .5s ease;
+    .toggle {
+      transform: translateX(19px);
+      #dark-mode {
+        &:before {
+            border-radius: 50%;
+            width: 150%;
+            height: 85%;
+            left: 40%;
+            transform: translate(-10%, -40%), rotate(-35deg);
+        }
+      }
+    }
+  }
+}
+// DEMO STYLES
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+html {
+  font-size: 16px;
+}
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Source Sans Pro";
+}
+h2, h3 {
+  transition: color .5s ease;
+}
